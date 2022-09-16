@@ -13,7 +13,7 @@ with open(pathwayCSV) as PollingCSV:
 #Initialize dictionalary 
 #for each candidate check if thy're in there (if in )
 #else not in there intitialze it to 1
-keys_dict = {}
+candidate_dict = {}
 
     for row in csvreader:
         #pull out the desired values row[2] and add it to the dictionary
