@@ -3,6 +3,11 @@ import csv
 
 csvpath = os.path.join('..','PyBank','Resources','budget_data.csv')
 
+#Define the variables of min month and max month as well
+#min_month = 0
+#max_month = 0
+
+
 with open(csvpath) as BudgetCSV:
     csvreader = csv.reader(BudgetCSV, delimiter=",")
     next(csvreader, None) # skip the headers, found on stack overflow
@@ -11,13 +16,12 @@ with open(csvpath) as BudgetCSV:
     ProfitLoss = []
 
     for row in csvreader:
-        # print(i[0]) 
         months.append(row[0])
         ProfitLoss.append(float(row[1]))
     
-    # NO NEED #ProfitLossInt = [round(float(i)) for i in ProfitLoss]
-    # print(ProfitLossInt)
-
+    # print(i[0]) 
+    # NO NEED #ProfitLossInt = [round(float(i)) for i in ProfitLoss], # print(ProfitLossInt)
+    
     ##count total number of months included in the dataset
     print(len(months))
     print(sum(ProfitLoss))
@@ -37,14 +41,20 @@ with open(csvpath) as BudgetCSV:
     for i in range(len(ProfitLoss)-1):
         plChange.append(ProfitLoss[i + 1] - ProfitLoss[i])
 
-    average = sum(plChange)/len(plChange)
+    average = int(sum(plChange)/len(plChange))
     print(f'Average Change:$ {average}')
 
+
+    #within this for loop, I can actually add this varible and create a condition instea
+        #basically to assign the value 
     GreatestedIncrease = max(plChange)
-    print(f'Greatest Increase in Profits: {months}, {GreatestedIncrease}')
+    print(f'Greatest Increase in Profits: {GreatestedIncrease}') #need to add month
 
     GreatestDecrease = min(plChange)
-    print(f'Greatest Decrease in Profits: {months}, {GreatestDecrease}')
+    print(f'Greatest Decrease in Profits: {GreatestDecrease}')
+
+
+    #OUTPAth to print to txt
 
 
 
