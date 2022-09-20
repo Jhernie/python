@@ -44,10 +44,11 @@ with open(csvpath) as BudgetCSV:
     average = int(sum(plChange)/len(plChange))
     print(f'Average Change:$ {average}')
 
-
     #within this for loop, I can actually add this varible and create a condition instea
-        #basically to assign the value 
+        #basically to assign the value of the month at the same time as identifying the 
+        #
     GreatestedIncrease = max(plChange)
+        #consider 'max = 0 and if thing is greater
     print(f'Greatest Increase in Profits: {GreatestedIncrease}') #need to add month
 
     GreatestDecrease = min(plChange)
@@ -55,9 +56,6 @@ with open(csvpath) as BudgetCSV:
 
 
     #OUTPAth to print to txt
-
-
-
 
 ## NOW NEED TO EXPORT TO TXT FILE, and also figure out how to 
     ##reference the specific month..might need a new variable?

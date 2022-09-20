@@ -16,12 +16,41 @@ with open(pathwayCSV) as PollingCSV:
             #ask the loop to store the value if it is unique, compare it to the one above
             #and when the next candidate changes, begin storing that and compare the next 
             #value to that
+        #break
 
-    candidate_count = votes.count("Charles Casper Stockham")
-    print(candidate_count)
+    vote_count = len(votes)
 
+    results = {}
 
+    # candidate_count = votes.count("Charles Casper Stockham")
+    # print(candidate_count)
+
+    for tally in votes:
+    # check if that votes (key) is in the dictionary
+    # if true then add one to the existing key
+        if tally in results.keys():
+            #don't actuallly need .keys, but it will do the same thing 
+            #try also .items
+            #for thing in dict.keys():
+                #print(thing, dict[thing])
+            results[tally] = results[tally] + 1
+    # if false then add key to dictionary with a value of 1
+        else:
+            results[tally] = 1
+
+    print("Election Results")
+    print("_"*25)
+    print()
+    print(f'Total Votes: {vote_count}')
+    print("_"*25)
+    print(results)
+
+##nice 'what is in my dictionary?' check:
+# for key in sorted(my_dict.keys()):
+#     print(key, "->", my_dict[key])
     
+
+
     #another way to count votes
     # for count in votes:
     #     if count not in votes:
@@ -38,9 +67,6 @@ with open(pathwayCSV) as PollingCSV:
 
     # count = 0
     # candiate_count = []
-
-
-        
 
         #print(rows[0])
         #you can print "break" at the end of the for loop
